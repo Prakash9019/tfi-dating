@@ -3,7 +3,38 @@
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
 
-import { Platform } from 'react-native';
+
+import { Dimensions, Platform } from 'react-native';
+
+export const COLORS = {
+  background: '#F1ECE6',
+  text: {
+    primary: '#000000',
+    secondary: '#A0A0A0',
+    error: '#E1494B',
+    success: '#4CAF50',
+    inverse: '#FFFFFF',
+  },
+  button: {
+    primary: '#000000',
+    text: '#FFFFFF',
+    disabled: '#A0A0A0',
+  },
+  input: {
+    bg: '#FFFFFF',
+    border: '#E5E5E5',
+  }
+};
+
+export const LAYOUT = {
+  window: Dimensions.get('window'),
+  padding: 24,
+  radius: {
+    button: 100,
+    card: 24,
+    input: 16,
+  }
+};
 
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
@@ -25,6 +56,23 @@ export const Colors = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
+    background: '#F1ECE6',
+  text: {
+    primary: '#000000',
+    secondary: '#A0A0A0',
+    error: '#E1494B',
+    success: '#4CAF50',
+    inverse: '#FFFFFF',
+  },
+  button: {
+    primary: '#000000',
+    text: '#FFFFFF',
+    disabled: '#A0A0A0',
+  },
+  input: {
+    bg: '#FFFFFF',
+    border: '#E5E5E5',
+  }
 };
 
 export const Fonts = Platform.select({
