@@ -74,8 +74,8 @@ export const searchMusic = async (query: string) => {
   return data;
 };
 
-export const saveUserMoods = async (userId: string, moods: any) => {
-  const { data } = await api.post('/users/moods', { userId, moods });
+export const saveUserMoods = async ( moods: any) => {
+  const { data } = await api.post('/users/moods', { moods });
   return data;
 };
 

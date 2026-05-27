@@ -28,7 +28,7 @@ export default function LoginScreen() {
       if (data.success) {
         await saveToken(data.token);
         // In a real app, save data.token to SecureStore here
-        router.replace("/(fandom)/bias" as any);
+        router.replace("/(main)" as any);
       }
     } catch (error: any) {
       Alert.alert(

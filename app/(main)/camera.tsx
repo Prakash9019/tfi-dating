@@ -19,6 +19,39 @@ const { width, height } = Dimensions.get("window");
 // Define oval dimensions to match the design
 const OVAL_WIDTH = width * 0.85;
 const OVAL_HEIGHT = height * 0.55;
+   const generateDottedOval = (
+  cx: number,
+  cy: number,
+  rx: number,
+  ry: number,
+  dots = 60
+) => {
+  const elements = [];
+
+  for (let i = 0; i < dots; i++) {
+    const angle = (2 * Math.PI * i) / dots;
+
+    const x = cx + rx * Math.cos(angle);
+    const y = cy + ry * Math.sin(angle);
+
+    elements.push(
+      <Rect
+        key={i}
+        x={x}
+        y={y}
+        width={6}
+        height={6}
+        fill="rgba(255,255,255,0.6)"
+        rx={1}
+        rotation={(angle * 180) / Math.PI}
+        originX={x}
+        originY={y}
+      />
+    );
+  }
+
+  return elements;
+};
 
 export default function CameraScreen() {
   // Get the reference image URI passed from the previous steps
@@ -145,28 +178,10 @@ export default function CameraScreen() {
     />
 
     {/* DOTTED GUIDE OVERLAY */}
-    <Svg style={StyleSheet.absoluteFill}>
-      <Ellipse
-        cx="70%"
-        cy="35%"
-        rx="30%"
-        ry="35%"
-        stroke="rgba(255,255,255,0.6)"
-        strokeWidth="3"
-        strokeDasharray="6 6"
-        fill="transparent"
-      />
-      <Ellipse
-        cx="30%"
-        cy="75%"
-        rx="20%"
-        ry="20%"
-        stroke="rgba(255,255,255,0.6)"
-        strokeWidth="3"
-        strokeDasharray="6 6"
-        fill="transparent"
-      />
-    </Svg>
+<Svg style={StyleSheet.absoluteFill}>
+  {generateDottedOval(width * 0.7, height * 0.3, 140, 170)}
+  {generateDottedOval(width * 0.3, height * 0.75, 70, 70)}
+</Svg>
 
     <Text style={styles.overlayText}>
       Both your face and index finger should be clearly visible

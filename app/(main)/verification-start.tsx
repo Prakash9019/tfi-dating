@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
 
   // --- Blur Section ---
   blurContainer: {
-    position: 'absolute', top: 220, width: 342, height: 252,
+    position: 'absolute', top: 260, width: 342, height: 252,
     borderRadius: 30, overflow: 'hidden', alignItems: 'center', justifyContent: 'center',
   },
   blurImage: { width: '100%', height: '100%', opacity: 0.6 },
@@ -260,10 +260,10 @@ sheetTitle: {
   marginBottom: 20,
 },
 
- avatarWrapper: {
-  position: 'absolute',
-  top: -45,
+avatarWrapper: {
   alignSelf: 'center',
+  marginTop: -45,   // Instead of position absolute
+  marginBottom: 10,
 },
 
 avatar: {
